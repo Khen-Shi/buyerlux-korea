@@ -1,73 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxury Buyer Korea | Люкс аксессуары</title>
+  <style>
+    :root {
+      --gold: linear-gradient(135deg, #d4af37 0%, #f9e29c 50%, #b8860b 100%);
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
 
+    body {
+      margin: 0;
+      font-family: 'optima', 'Segoe UI', Roboto, sans-serif;
+      /* Эффектный темный фон с градиентом */
+      background: radial-gradient(circle at top right, #1a1a1a, #050505);
+      color: #ffffff;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
 
+    /* Анимированные фоновые пятна для глубины */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -10%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: rgba(212, 175, 55, 0.05);
+      filter: blur(100px);
+      border-radius: 50%;
+      z-index: -1;
+    }
 
-  
-  
-  
-  
-  
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      animation: fadeIn 1.2s ease-out;
+    }
 
+    header {
+      padding: 30px 0;
+      text-align: center;
+      border-bottom: 1px solid var(--glass-border);
+    }
 
-  
+    .logo {
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 5px;
+      background: var(--gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+    }
 
-    
-      
-LUXURY BUYER KOREA
+    .hero {
+      padding: 60px 0;
+      text-align: center;
+    }
 
-      
-RU / EN
+    .hero h1 {
+      font-size: clamp(32px, 8vw, 52px);
+      font-weight: 200;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
 
-    
+    .hero p {
+      font-size: 18px;
+      color: #aaa;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
 
-<section class="hero">
-  <h1>Байер люксовых аксессуаров в Южной Корее</h1>
-  <p>Оригинальные сумки, аксессуары и лимитированные позиции из Кореи.<br>Персональный подбор. Доверие. Конфиденциальность.</p>
-  <a class="btn" href="https://t.me/buyerlux_kr" target="_blank">Перейти в Telegram</a>
-</section>
+    .btn {
+      display: inline-block;
+      padding: 18px 40px;
+      border-radius: 2px; /* Острые углы выглядят дороже */
+      background: var(--gold);
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 14px;
+      transition: all 0.4s;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
 
-<section class="sections">
-  <div class="card">
-    <h3>Бренды, с которыми работаю</h3>
-    <p style="opacity:0.9;">CHANEL · HERMÈS · LOUIS VUITTON · DIOR · CELINE · GUCCI · PRADA · BOTTEGA VENETA</p>
-    <div style="margin-top:16px; display:flex; flex-wrap:wrap; gap:12px;">
-      <div style="background:#111; border-radius:12px; padding:10px 14px; font-size:13px;">CHANEL</div>
-      <div style="background:#111; border-radius:12px; padding:10px 14px; font-size:13px;">HERMÈS</div>
-      <div style="background:#111; border-radius:12px; padding:10px 14px; font-size:13px;">LV</div>
-      <div style="background:#111; border-radius:12px; padding:10px 14px; font-size:13px;">DIOR</div>
-      <div style="background:#111; border-radius:12px; padding:10px 14px; font-size:13px;">CELINE</div>
-      <div style="background:#111; border-radius:12px; padding:10px 14px; font-size:13px;">GUCCI</div>
-      <div style="background:#111; border-radius:12px; padding:10px 14px; font-size:13px;">PRADA</div>
-      <div style="background:#111; border-radius:12px; padding:10px 14px; font-size:13px;">BOTTEGA</div>
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+      filter: brightness(1.1);
+    }
+
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 35px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(212, 175, 55, 0.3);
+    }
+
+    .card h3 {
+      color: #f9e29c;
+      font-weight: 400;
+      margin-top: 0;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 18px;
+    }
+
+    .brand-tag {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--glass-border);
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .contact {
+      margin-top: 80px;
+      padding: 60px 20px;
+      background: var(--glass);
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      letter-spacing: 1px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 40px 0; }
+      .card { padding: 25px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="logo">Luxury Buyer Korea</div>
+  </header>
+
+  <section class="hero">
+    <h1>Доступ к миру роскоши</h1>
+    <p>Ваш персональный проводник по бутикам Сеула. Только оригиналы, полный видеоотчет и безупречный сервис.</p>
+    <a class="btn" href="https://t.me/buyerlux_kr">Связаться в Telegram</a>
+  </section>
+
+  <section class="sections">
+    <div class="card">
+      <h3>Premium Brands</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        <span class="brand-tag">CHANEL</span>
+        <span class="brand-tag">HERMÈS</span>
+        <span class="brand-tag">DIOR</span>
+        <span class="brand-tag">LOUIS VUITTON</span>
+        <span class="brand-tag">CELINE</span>
+        <span class="brand-tag">GOYARD</span>
+      </div>
     </div>
-  </div>
-  <div class="card">
-    <h3>Почему мне доверяют</h3>
-    <p>• Работа напрямую с бутиками и официальными магазинами<br>
-       • Только оригинальная продукция<br>
-       • Фото и видео отчёты перед покупкой</p>
-  </div>
-  <div class="card">
-    <h3>Что я подбираю</h3>
-    <p>Сумки, ремни, кошельки, аксессуары класса люкс и премиум.<br>
-       Private shopping и редкие позиции.</p>
-  </div>
-  <div class="card">
-    <h3>Как сделать заказ</h3>
-    <p>Вы переходите в Telegram, оставляете заявку — я лично подбираю вариант и сопровождаю до получения.</p>
-  </div>
-</section>
 
-<section class="contact">
-  <a class="btn" href="https://t.me/buyerlux_kr" target="_blank" style="margin-bottom:24px;">Оставить заявку в Telegram</a>
-  <h2>Контакты</h2>
-  <p>📞 +82 10 7791 7060</p>
-  <p>💬 Telegram: <a href="https://t.me/buyerlux_kr" target="_blank" style="color:#f5d77a; text-decoration:none;">@buyerlux_kr</a></p>
-</section>
+    <div class="card">
+      <h3>Наши гарантии</h3>
+      <p style="font-size: 14px; color: #ccc;">• Выкуп только в официальных бутиках<br>
+         • Предоставление чеков и сертификатов<br>
+         • Страховка и надежная доставка</p>
+    </div>
 
-<footer>
-  © 2025 Luxury Buyer Korea. All rights reserved.
-</footer>
+    <div class="card">
+      <h3>Как мы работаем</h3>
+      <p style="font-size: 14px; color: #ccc;">Находите нужную вещь или доверяете подбор нам. Получаете расчет, фото-подтверждение и доставку в руки.</p>
+    </div>
+  </section>
 
+  <section class="contact">
+    <h2 style="font-weight: 300; margin-bottom: 30px;">Готовы к покупке?</h2>
+    <p style="margin-bottom: 30px;">Напишите нам для уточнения наличия и цены</p>
+    <p style="font-size: 20px; letter-spacing: 2px;">📞 +82 10 7791 7060</p>
+    <a class="btn" href="https://t.me/buyerlux_kr" style="margin-top: 20px;">Открыть чат</a>
+  </section>
 
+  <footer>
+    © 2025 LUXURY BUYER KOREA. SEOUL, SOUTH KOREA.
+  </footer>
+</div>
 
-
+</body>
+</html>
